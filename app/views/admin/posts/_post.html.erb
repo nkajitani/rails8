@@ -1,2 +1,12 @@
 <div id="<%= dom_id post %>">
+    <% if post.image? %>
+      <figure>
+        <%= image_tag post.image.url, alt: post.title %>
+        <figcaption><%= h(File.basename(post.image.url)) %></figcaption>
+      </figure>
+    <% end %>
+
+    <section>
+      <%= simple_format(h(post.body)) %>
+    </section>
 </div>
