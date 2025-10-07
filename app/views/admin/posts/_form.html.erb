@@ -29,6 +29,7 @@
       </div>
     <% end %>
     <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
     <div style="color: red">
       <%= post.errors.full_messages_for(:image).join(', ') if post.errors[:image].present? %>
     </div>

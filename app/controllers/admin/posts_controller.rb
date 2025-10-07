@@ -53,6 +53,6 @@ class Admin::PostsController < Admin::BaseController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.fetch(:post).permit(:title, :body, :image)
+      params.fetch(:post).permit(:title, :body, :image, :image_cache)
     end
 end
