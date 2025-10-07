@@ -6,13 +6,13 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
     it { should validate_presence_of(:password_confirmation) }
 
-  # it "validate" do
-  #   # invalid
-  #   ## email
-  #   expect(build(:user, email: nil)).to be_invalid
-  #   ## password
-  #   expect(build(:user, password: nil)).to be_invalid
-  #   ## password_confirmation
-  #   expect(build(:user, password_confirmation: "aaaaaa")).to be_invalid
+    # it "validate" do
+    #   # invalid
+    #   ## email
+    #   expect(build(:user, email: nil)).to be_invalid
+    #   ## password
+    #   expect(build(:user, password: nil)).to be_invalid
+    #   ## password_confirmation
+    #   expect(build(:user, password_confirmation: "aaaaaa")).to be_invalid
   end
 end

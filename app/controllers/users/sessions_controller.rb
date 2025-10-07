@@ -2,7 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  layout 'sign_in'
+  layout "sign_in"
 
   # GET /resource/sign_in
   # def new
@@ -23,7 +23,7 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     admin_root_path  # 管理画面TOPへ
   end
-  
+
   # ログアウト後のリダイレクト先
   def after_sign_out_path_for(resource_or_scope)
     new_user_session_path

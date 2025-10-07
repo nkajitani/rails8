@@ -40,14 +40,14 @@ gem "kaminari", "~> 1.2.2"
 
 # locale
 gem "rails-i18n", "~> 8.0.2"
-## devise 
+## devise
 gem "devise-i18n", "~> 1.15.0"
 
 group :development do
   gem "letter_opener_web", "~> 3.0.0"
 
   gem "better_errors", "~> 2.10.1"
-  
+
   gem "binding_of_caller", "~> 1.0.1"
 end
 

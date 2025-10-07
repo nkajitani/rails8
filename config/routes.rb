@@ -13,18 +13,18 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # front
-  resources :posts, only: [:show]
+  resources :posts, only: [ :show ]
 
   # admin
   namespace :admin do
-    root 'home#index'
+    root "home#index"
     resources :posts
-    resource :profile, only: [:show, :edit, :update]
+    resource :profile, only: [ :show, :edit, :update ]
   end
-  devise_for :users, path: 'admin', skip: [:registrations], module: "users"
-  devise_scope :user do  
-    get  'admin/sign_up', to: 'users/registrations#new',    as: :new_user_registration
-    post 'admin/sign_up', to: 'users/registrations#create', as: :user_registration
+  devise_for :users, path: "admin", skip: [ :registrations ], module: "users"
+  devise_scope :user do
+    get  "admin/sign_up", to: "users/registrations#new",    as: :new_user_registration
+    post "admin/sign_up", to: "users/registrations#create", as: :user_registration
   end
 
   # letter_opener
