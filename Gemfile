@@ -36,6 +36,8 @@ gem "devise", "~> 4.9.4"
 
 gem "carrierwave", "~> 3.1.2"
 
+gem "mini_magick"
+
 gem "kaminari", "~> 1.2.2"
 
 # locale
