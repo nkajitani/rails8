@@ -1,3 +1,4 @@
+# 投稿
 class Post < ApplicationRecord
   mount_uploader :image, ::ImageUploader
 

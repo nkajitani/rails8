@@ -24,7 +24,7 @@ class Admin::PostsController < Admin::BaseController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to [ :admin, @post ], notice: "Post was successfully created."
+      redirect_to [ :admin, @post ], notice: "投稿が作成されました。"
     else
       render :new, status: :unprocessable_content
     end
@@ -33,7 +33,7 @@ class Admin::PostsController < Admin::BaseController
   # PATCH/PUT /admin/posts/1
   def update
     if @post.update(post_params)
-      redirect_to [ :admin, @post ], notice: "Post was successfully updated.", status: :see_other
+      redirect_to [ :admin, @post ], notice: "投稿が更新されました。"
     else
       render :edit, status: :unprocessable_content
     end
@@ -42,7 +42,7 @@ class Admin::PostsController < Admin::BaseController
   # DELETE /admin/posts/1
   def destroy
     @post.destroy!
-    redirect_to admin_posts_path, notice: "Post was successfully destroyed.", status: :see_other
+    redirect_to admin_posts_path, notice: "投稿が削除されました。"
   end
 
   private
