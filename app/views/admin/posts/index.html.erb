@@ -1,14 +1,18 @@
-<% content_for :title, "Posts" %>
+<% content_for :title, "投稿一覧" %>
 
-<h1>Posts</h1>
+<h1>投稿一覧</h1>
+
+<%= paginate @posts %>
 
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
     <p>
-      <%= link_to "Show this post", [:admin, post] %>
+      <%= link_to "この投稿を表示", [:admin, post] %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New post", new_admin_post_path %>
+<%= paginate @posts %>
+
+<%= link_to "新規投稿", new_admin_post_path %>
