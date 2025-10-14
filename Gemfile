@@ -40,7 +40,7 @@ gem "devise-i18n", "~> 1.15.0"
 
 gem "kaminari", "~> 1.2.2"
 
-gem 'kaminari-i18n'
+gem "kaminari-i18n"
 
 gem "mini_magick", "~> 5.3.1"
 
