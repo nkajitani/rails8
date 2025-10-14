@@ -32,18 +32,19 @@ group :development do
   gem "web-console"
 end
 
-gem "devise", "~> 4.9.4"
-
 gem "carrierwave", "~> 3.1.2"
 
-gem "mini_magick"
+gem "devise", "~> 4.9.4"
+
+gem "devise-i18n", "~> 1.15.0"
 
 gem "kaminari", "~> 1.2.2"
 
-# locale
+gem 'kaminari-i18n'
+
+gem "mini_magick", "~> 5.3.1"
+
 gem "rails-i18n", "~> 8.0.2"
-## devise
-gem "devise-i18n", "~> 1.15.0"
 
 group :development do
   gem "letter_opener_web", "~> 3.0.0"

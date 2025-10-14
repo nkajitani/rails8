@@ -152,6 +152,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    kaminari-i18n (0.5.0)
+      kaminari
+      rails
     language_server-protocol (3.17.0.5)
     launchy (3.1.1)
       addressable (~> 2.8)
@@ -359,8 +362,9 @@ DEPENDENCIES
   devise-i18n (~> 1.15.0)
   factory_bot_rails (~> 6.5.1)
   kaminari (~> 1.2.2)
+  kaminari-i18n
   letter_opener_web (~> 3.0.0)
-  mini_magick
+  mini_magick (~> 5.3.1)
   puma (>= 5.0)
   rails (~> 8.0.2, >= 8.0.2.1)
   rails-controller-testing (~> 1.0.5)
