@@ -6,4 +6,6 @@
         <figcaption><%= h(File.basename(image_url)) %></figcaption>
       </figure>
     <% end %>
+    <div>公開: <%= post.published_at ? l(post.published_at, format: :long) : '—' %></div>
+    <div><%= post.body %></div>
 </div>
