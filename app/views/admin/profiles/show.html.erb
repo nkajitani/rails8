@@ -1,2 +1,15 @@
-<h1>Admin::Profiles#show</h1>
-<p>Find me in app/views/admin/profiles/show.html.erb</p>
+<h1>ユーザープロファイル詳細</h1>
+
+<dl>
+  <dt>ID</dt><dd><%= current_user.id %></dd>
+
+  <dt>氏名</dt><dd><%= current_user.name %></dd>
+
+  <dt>メール</dt>
+  <dd><%= current_user.email %></dd>
+
+  <dt>作成日時</dt><dd><%= l(current_user.created_at) %></dd>
+  <dt>更新日時</dt><dd><%= l(current_user.updated_at) %></dd>
+</dl>
+
+<%= link_to '編集', edit_admin_profile_path, class: 'btn btn-primary' %>

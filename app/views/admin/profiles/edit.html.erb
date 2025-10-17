@@ -1,2 +1,9 @@
-<h1>Admin::Profiles#edit</h1>
-<p>Find me in app/views/admin/profiles/edit.html.erb</p>
+<% content_for :title, "ユーザー詳細編集" %>
+
+<h1>ユーザー詳細編集</h1>
+
+<%= render "form", resource: current_user, resource_name: :user %>
+
+<div>
+  <%= link_to "ユーザー詳細へ", admin_profile_path %>
+</div>
