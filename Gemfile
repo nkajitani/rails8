@@ -44,6 +44,8 @@ gem "mini_magick", "~> 5.3.1"
 
 gem "rails-i18n", "~> 8.0.2"
 
+gem "commonmarker", "~> 2.5.0"
+
 group :development do
   gem "letter_opener_web", "~> 3.0.0"
 

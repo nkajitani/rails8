@@ -1,11 +1,9 @@
 <div id="<%= dom_id post %>">
-    <% if post.image? %>
-      <figure>
-        <% image_url = params[:action] == 'index' ? post.image.list.url : post.image.url %>
-        <%= image_tag image_url, alt: post.title %>
-        <figcaption><%= h(File.basename(image_url)) %></figcaption>
-      </figure>
-    <% end %>
-    <div>公開: <%= post.published_at ? l(post.published_at, format: :long) : '—' %></div>
-    <div><%= post.body %></div>
+  <figure>
+    <%= image_tag post.image.url, alt: post.title %>
+    <figcaption><%= File.basename(post.image.url) %></figcaption>
+  </figure>
+  <div>公開日: <%= post.published_at ? l(post.published_at, format: :long) : '—' %></div>
+  <div><%= render_markdown(post.body) %></div>
+
 </div>

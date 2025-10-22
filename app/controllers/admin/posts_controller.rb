@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::BaseController
 
   # GET /admin/posts
   def index
-    @posts = Post.page(params[:page]).per(10)
+    @posts = Post.page(params[:page]).per(25)
   end
 
   # GET /admin/posts/1
