@@ -7,8 +7,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   # GET /admin/posts/1
-  def show
-  end
+  def show; end
 
   # GET /admin/posts/new
   def new
@@ -16,8 +15,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   # GET /admin/posts/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /admin/posts
   def create
@@ -46,12 +44,10 @@ class Admin::PostsController < Admin::BaseController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params.expect(:id))
+      @post = Post.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def post_params
       params.fetch(:post).permit(:title, :body, :image, :image_cache, :published_at)
     end
