@@ -1,0 +1,9 @@
+<div>
+  ログインユーザー: <%= current_user.name %>
+</div>
+<div>
+  <%= link_to 'プロフィール編集', edit_admin_profile_path %>
+</div>
+<div>
+  <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+</div>
