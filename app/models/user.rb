@@ -1,7 +1,5 @@
 # ユーザー
 class User < ApplicationRecord
-  include Devise::Models::DatabaseAuthenticatable
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
