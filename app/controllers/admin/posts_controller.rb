@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::BaseController
 
   # GET /admin/posts
   def index
-    @posts = Post.page(params[:page]).per(25)
+    @posts = Post.order(published_at: :desc).page(params[:page]).per(25)
   end
 
   # GET /admin/posts/1
@@ -22,7 +22,7 @@ class Admin::PostsController < Admin::BaseController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to [ :admin, @post ], notice: "投稿が作成されました。"
+      redirect_to [ :admin, @post ], notice: "ブログが作成されました。"
     else
       render :new, status: :unprocessable_content
     end
@@ -31,7 +31,7 @@ class Admin::PostsController < Admin::BaseController
   # PATCH/PUT /admin/posts/1
   def update
     if @post.update(post_params)
-      redirect_to [ :admin, @post ], notice: "投稿が更新されました。"
+      redirect_to [ :admin, @post ], notice: "ブログが更新されました。"
     else
       render :edit, status: :unprocessable_content
     end
@@ -40,7 +40,7 @@ class Admin::PostsController < Admin::BaseController
   # DELETE /admin/posts/1
   def destroy
     @post.destroy!
-    redirect_to admin_posts_path, notice: "投稿が削除されました。"
+    redirect_to admin_posts_path, notice: "ブログが削除されました。"
   end
 
   private

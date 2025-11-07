@@ -56,7 +56,7 @@ RSpec.describe "Admin::Posts", type: :request do
 
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(admin_post_path(Post.last))
-      expect(flash[:notice]).to eq("投稿が作成されました。")
+      expect(flash[:notice]).to eq("ブログが作成されました。")
     end
 
     it 'returns 422 unprocessable content with invalid params' do
@@ -89,7 +89,7 @@ RSpec.describe "Admin::Posts", type: :request do
 
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(admin_post_path(post))
-      expect(flash[:notice]).to eq("投稿が更新されました。")
+      expect(flash[:notice]).to eq("ブログが更新されました。")
     end
 
     it 'returns 422 unprocessable content with invalid params' do
