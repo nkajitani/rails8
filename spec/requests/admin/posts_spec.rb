@@ -100,4 +100,14 @@ RSpec.describe "Admin::Posts", type: :request do
       expect(assigns(:post).errors).to be_present
     end
   end
+  describe 'DELETE /admin/posts/:id' do
+    it 'deletes the post and redirects' do
+      post = create(:post)
+      delete admin_post_path(post)
+
+      expect(response).to have_http_status(:redirect)
+      expect(Post.exists?(post.id)).to be_falsey
+      expect(flash[:notice]).to eq("ブログが削除されました。")
+    end
+  end
 end
