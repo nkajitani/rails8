@@ -10,6 +10,7 @@ RSpec.describe "Admin::Posts", type: :request do
       get admin_posts_path
 
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:index)
     end
 
     it 'returns list limit posts' do
@@ -17,19 +18,23 @@ RSpec.describe "Admin::Posts", type: :request do
       get admin_posts_path
 
       expect(response).to have_http_status(:success)
+      expect(assigns(:posts).size).to eq(25)
 
       get admin_posts_path, params: { page: 2 }
       expect(response).to have_http_status(:success)
+      expect(assigns(:posts).size).to eq(5)
     end
   end
 
   describe 'GET /admin/posts/:id' do
-    let(:post_record) { create(:post) }
+    let(:post) { create(:post) }
 
     it 'returns 200 success' do
-      get admin_post_path(post_record)
+      get admin_post_path(post)
 
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:show)
+      expect(assigns(:post)).to eq(post)
     end
   end
 
@@ -38,6 +43,8 @@ RSpec.describe "Admin::Posts", type: :request do
       get new_admin_post_path
 
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:new)
+      expect(assigns(:post)).to be_a_new(Post)
     end
   end
 
@@ -56,35 +63,41 @@ RSpec.describe "Admin::Posts", type: :request do
       post admin_posts_path, params: { post: { title: '', body: '' } }
 
       expect(response).to have_http_status(:unprocessable_content)
+      expect(response).to render_template(:new)
+      expect(assigns(:post).errors).to be_present
     end
   end
 
   describe 'GET /admin/posts/:id/edit' do
-    let(:post_record) { create(:post) }
+    let(:post) { create(:post) }
 
     it 'returns 200 OK' do
-      get edit_admin_post_path(post_record)
+      get edit_admin_post_path(post)
 
       expect(response).to have_http_status(:success)
+      expect(response).to render_template(:edit)
+      expect(assigns(:post)).to eq(post)
     end
   end
 
   describe 'PATCH /admin/posts/:id' do
-    let(:post_record) { create(:post) }
+    let(:post) { create(:post) }
     let(:params) { { title: 'Updated Title', body: 'Updated Body' } }
 
     it 'updates the post and redirects' do
-      patch admin_post_path(post_record), params: { post: params }
+      patch admin_post_path(post), params: { post: params }
 
       expect(response).to have_http_status(:redirect)
-      expect(response).to redirect_to(admin_post_path(post_record))
+      expect(response).to redirect_to(admin_post_path(post))
       expect(flash[:notice]).to eq("投稿が更新されました。")
     end
 
     it 'returns 422 unprocessable content with invalid params' do
-      patch admin_post_path(post_record), params: { post: { title: '', body: '' } }
+      patch admin_post_path(post), params: { post: { title: '', body: '' } }
 
       expect(response).to have_http_status(:unprocessable_content)
+      expect(response).to render_template(:edit)
+      expect(assigns(:post).errors).to be_present
     end
   end
 end
