@@ -3,7 +3,7 @@ class Admin::PostsController < Admin::BaseController
 
   # GET /admin/posts
   def index
-    @posts = Post.order(published_at: :desc).page(params[:page]).per(25)
+    @posts = Post.order(published_at: :desc).page(params[:page])
   end
 
   # GET /admin/posts/1
